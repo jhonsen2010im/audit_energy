@@ -1,0 +1,21 @@
+Subject: Reducing Energy Costs at $company_name
+
+Dear $contact_name,
+
+I noticed that $company_name operates out of a $building_description in $city. Buildings like yours often have significant opportunities to reduce energy costs by 15-30% through a professional energy audit.
+
+$score_reason
+
+An energy audit would help you:
+- Identify where energy is being wasted
+- Prioritize cost-effective upgrades
+- Potentially qualify for utility rebates and tax incentives
+- Reduce your carbon footprint
+
+I'd love to schedule a brief 15-minute call to discuss how we can help. Would $next_tuesday or $next_thursday work for you?
+
+Best regards,
+$sender_name
+$sender_company
+$sender_phone
+$sender_email

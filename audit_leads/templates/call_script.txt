@@ -1,0 +1,31 @@
+CALL SCRIPT - $company_name
+=============================================
+
+Contact: $contact_name ($contact_title)
+Company: $company_name
+Location: $city, $state
+Building: $building_description
+Lead Score: $score/100
+
+OPENING:
+"Hi $contact_name, this is $sender_name from $sender_company. I'm reaching out because we help $industry businesses in the $city area reduce their energy costs. Do you have a quick moment?"
+
+KEY TALKING POINTS:
+1. "We've found that buildings like yours - a $building_description - typically have significant opportunities for energy savings."
+2. "Our clients usually see 15-30% reductions in energy costs after implementing our audit recommendations."
+3. "Many utilities offer rebates that can cover a large portion of the audit cost."
+4. "We also help identify tax incentives like the 179D deduction for energy-efficient commercial buildings."
+
+HANDLE OBJECTIONS:
+- "Too busy": "I completely understand. Could I send you a brief one-page overview by email? It takes about 2 minutes to read."
+- "Already efficient": "That's great to hear! Even efficient buildings often have hidden savings. Would a free preliminary assessment be useful to confirm?"
+- "Too expensive": "Our audits typically pay for themselves within 6-12 months. Plus, many utilities subsidize the cost."
+- "Not interested": "No problem at all. Would it be okay if I send you some information in case your situation changes?"
+
+CLOSING:
+"Based on what you've described, I think we could identify some real savings for you. Would $next_tuesday or $next_thursday work for a 30-minute on-site walkthrough?"
+
+NOTES:
+_____________________________________________
+_____________________________________________
+_____________________________________________

@@ -1,0 +1,17 @@
+Subject: Following Up - Energy Savings for $company_name
+
+Hi $contact_name,
+
+I wanted to follow up on my previous email about energy cost reduction opportunities for $company_name.
+
+With energy costs continuing to rise, many $industry businesses in $city are finding that a professional energy audit pays for itself within the first year through identified savings.
+
+$score_reason
+
+I'd be happy to share a brief case study from a similar business that achieved over 20% energy savings. Would you have 10 minutes this week to chat?
+
+Best regards,
+$sender_name
+$sender_company
+$sender_phone
+$sender_email
