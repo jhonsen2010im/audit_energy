@@ -10,6 +10,8 @@ setup(
         "requests>=2.31",
         "beautifulsoup4>=4.12",
         "lxml>=5.1",
+        "Flask>=3.0",
+        "Authlib>=1.3",
     ],
     entry_points={
         "console_scripts": [

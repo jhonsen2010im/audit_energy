@@ -52,6 +52,16 @@ class Database:
                 occurred_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
 
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                google_id TEXT UNIQUE NOT NULL,
+                email TEXT UNIQUE NOT NULL,
+                name TEXT,
+                picture_url TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                last_login TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+
             CREATE INDEX IF NOT EXISTS idx_leads_status ON leads(status);
             CREATE INDEX IF NOT EXISTS idx_leads_score ON leads(score DESC);
             CREATE INDEX IF NOT EXISTS idx_contacts_lead_id ON contacts(lead_id);
@@ -175,6 +185,32 @@ class Database:
             (lead_id,),
         ).fetchall()
         return [dict(r) for r in rows]
+
+    # --- Users ---
+
+    def upsert_user(self, google_id: str, email: str, name: str = None,
+                    picture_url: str = None) -> dict:
+        self.conn.execute(
+            """INSERT INTO users (google_id, email, name, picture_url)
+               VALUES (?, ?, ?, ?)
+               ON CONFLICT(google_id) DO UPDATE SET
+                   email = excluded.email,
+                   name = excluded.name,
+                   picture_url = excluded.picture_url,
+                   last_login = CURRENT_TIMESTAMP""",
+            (google_id, email, name, picture_url),
+        )
+        self.conn.commit()
+        row = self.conn.execute(
+            "SELECT * FROM users WHERE google_id = ?", (google_id,)
+        ).fetchone()
+        return dict(row)
+
+    def get_user(self, user_id: int) -> dict | None:
+        row = self.conn.execute(
+            "SELECT * FROM users WHERE id = ?", (user_id,)
+        ).fetchone()
+        return dict(row) if row else None
 
     def close(self):
         self.conn.close()

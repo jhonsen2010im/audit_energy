@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Energy Audit Leads{% endblock %}
+
+{% block head %}
+<style>
+    .welcome { margin-bottom: 2rem; }
+    .welcome h1 { font-size: 1.5rem; color: #2c3e50; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .stat-card { background: #fff; border-radius: 8px; padding: 1.25rem; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .stat-card .number { font-size: 2rem; font-weight: bold; color: #2c3e50; }
+    .stat-card .label { color: #777; font-size: 0.85rem; text-transform: uppercase; margin-top: 0.25rem; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #eee; }
+    th { background: #f8f9fa; font-weight: 600; color: #555; font-size: 0.85rem; text-transform: uppercase; }
+    h2 { margin-bottom: 1rem; color: #2c3e50; font-size: 1.2rem; }
+    .status-badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.8rem; font-weight: 500; }
+    .status-new { background: #e3f2fd; color: #1565c0; }
+    .status-contacted { background: #fff3e0; color: #e65100; }
+    .status-qualified { background: #e8f5e9; color: #2e7d32; }
+    .status-proposal { background: #f3e5f5; color: #7b1fa2; }
+    .status-won { background: #e8f5e9; color: #1b5e20; }
+    .status-lost { background: #fce4ec; color: #c62828; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="welcome">
+    <h1>Welcome, {{ user.name or user.email }}</h1>
+</div>
+
+<div class="stats">
+    <div class="stat-card">
+        <div class="number">{{ total_leads }}</div>
+        <div class="label">Total Leads</div>
+    </div>
+    {% for status, count in status_counts.items() %}
+    <div class="stat-card">
+        <div class="number">{{ count }}</div>
+        <div class="label">{{ status | capitalize }}</div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if top_leads %}
+<h2>Top Leads by Score</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>City</th>
+            <th>Industry</th>
+            <th>Score</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for lead in top_leads %}
+        <tr>
+            <td>{{ lead.company_name or "—" }}</td>
+            <td>{{ lead.city or "—" }}</td>
+            <td>{{ lead.industry or "—" }}</td>
+            <td>{{ "%.0f" | format(lead.score) }}</td>
+            <td><span class="status-badge status-{{ lead.status }}">{{ lead.status }}</span></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

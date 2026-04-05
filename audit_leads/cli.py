@@ -346,5 +346,19 @@ def cmd_export(db, output, status):
     click.echo(f"Exported {len(leads)} leads to {output}.")
 
 
+# ==================== Web Server ====================
+
+@cli.command("serve")
+@click.option("--host", default="127.0.0.1", help="Host to bind to.")
+@click.option("--port", default=5000, type=int, help="Port to listen on.")
+@click.pass_obj
+def cmd_serve(db, host, port):
+    """Start the web interface with Google OAuth login."""
+    db.close()  # Close CLI db; Flask manages its own connections
+    from .web import create_app
+    app = create_app(db_path=db.db_path)
+    app.run(host=host, port=port, debug=True)
+
+
 if __name__ == "__main__":
     cli()
