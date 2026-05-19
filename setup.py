@@ -10,7 +10,7 @@ setup(
         "requests>=2.31",
         "beautifulsoup4>=4.12",
         "lxml>=5.1",
-        "notebooklm-py @ git+https://github.com/teng-lin/notebooklm-py.git",
+        "notebooklm-py[browser] @ git+https://github.com/teng-lin/notebooklm-py.git",
     ],
     entry_points={
         "console_scripts": [
