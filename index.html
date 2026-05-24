@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Green Consulting Corp — Energy audits and AI governance, run together.</title>
+<meta name="description" content="A one-person Philippine consulting practice for RA 11285 energy audits, ISO/IEC 42001 AI governance, and the EnerAI integrated engagement. Start with the refundable EnerAI Diagnostic." />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Green Consulting Corp" />
+<meta property="og:title" content="Green Consulting Corp — Energy audits and AI governance, run together." />
+<meta property="og:description" content="RA 11285 energy audits and ISO/IEC 42001 AI governance from a single accountable practitioner. Start with the refundable EnerAI Diagnostic." />
+<meta property="og:url" content="https://greencon.ai/" />
+<meta property="og:locale" content="en_PH" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Green Consulting Corp — Energy + AI governance, run together." />
+<meta name="twitter:description" content="Refundable PHP 75,000 EnerAI Diagnostic. RA 11285, ASHRAE Std 211, IPMVP, ISO/IEC 42001, NIST AI RMF, EU AI Act Article 14." />
+
+<link rel="canonical" href="https://greencon.ai/" />
+
+<!-- Fonts: Fraunces (serif) + Inter (sans) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Tailwind via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg:     '#FAFAF7',
+          ink:    '#0A0A0A',
+          mute:   '#6B6B6B',
+          line:   '#E6E5DF',
+          forest: '#0F4C3A',
+          forestDark: '#0B3A2C',
+        },
+        fontFamily: {
+          serif: ['Fraunces', 'Source Serif Pro', 'Georgia', 'serif'],
+          sans:  ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        },
+        maxWidth: {
+          prose: '720px',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background: #FAFAF7;
+    color: #0A0A0A;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss01","cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, .serif {
+    font-family: 'Fraunces', 'Source Serif Pro', Georgia, serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
+  }
+  /* Quiet typographic chip — no shadow, no badge feel */
+  .chip {
+    display: inline-flex; align-items: center;
+    border: 1px solid #E6E5DF;
+    border-radius: 9999px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.78rem;
+    line-height: 1;
+    color: #0A0A0A;
+    background: transparent;
+    white-space: nowrap;
+  }
+  .chip-forest {
+    border-color: #0F4C3A;
+    color: #0F4C3A;
+  }
+  .rule { border-color: #E6E5DF; }
+  a.link { color: #0F4C3A; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a.link:hover { text-decoration-thickness: 2px; }
+
+  .btn-primary {
+    background: #0F4C3A; color: #FAFAF7;
+    padding: 0.85rem 1.15rem; border-radius: 4px;
+    font-weight: 500; letter-spacing: -0.005em;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: background-color 120ms ease;
+  }
+  .btn-primary:hover { background: #0B3A2C; }
+  .btn-secondary {
+    color: #0A0A0A; border: 1px solid #0A0A0A;
+    padding: 0.85rem 1.15rem; border-radius: 4px;
+    font-weight: 500;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    transition: background-color 120ms ease, color 120ms ease;
+  }
+  .btn-secondary:hover { background: #0A0A0A; color: #FAFAF7; }
+
+  /* Subtle fade-in on load (CSS-only, no JS) */
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in { animation: fadeIn 600ms ease both; }
+    .fade-in.delay-1 { animation-delay: 80ms; }
+    .fade-in.delay-2 { animation-delay: 160ms; }
+    .fade-in.delay-3 { animation-delay: 240ms; }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Pricing table mobile readability */
+  .price-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.25rem 1rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid #E6E5DF;
+  }
+  @media (min-width: 720px) {
+    .price-row {
+      grid-template-columns: 1.4fr 2.4fr 1fr;
+      align-items: baseline;
+      padding: 1.25rem 0;
+    }
+  }
+  .price-row .tier { font-weight: 600; font-family: 'Fraunces', serif; font-size: 1.05rem; }
+  .price-row .desc { color: #6B6B6B; font-size: 0.92rem; }
+  .price-row .amt  { font-variant-numeric: tabular-nums; font-weight: 500; }
+  .price-row .amt .usd { color: #6B6B6B; font-weight: 400; }
+</style>
+
+<!-- Schema.org ProfessionalService -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Green Consulting Corp",
+  "alternateName": "Greencon",
+  "url": "https://greencon.ai",
+  "email": "jhonsensales@gmail.com",
+  "description": "One-person Philippine consulting practice for RA 11285 energy audits, ISO/IEC 42001 AI governance, and integrated EnerAI engagements.",
+  "areaServed": ["PH", "APAC"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Quezon City",
+    "addressRegion": "Metro Manila",
+    "addressCountry": "PH"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Engr. Jhonsen Sales",
+    "honorificPrefix": "Engr.",
+    "honorificSuffix": "ECE, CEM, CEA",
+    "jobTitle": "Founder & Lead Auditor",
+    "hasCredential": [
+      "Electronics Engineer (PRC, Philippines)",
+      "DOE-CECO Certified Energy Conservation Officer",
+      "AEE Certified Energy Manager (CEM)",
+      "AEE Certified Energy Auditor (CEA)",
+      "PECB ISO/IEC 42001 Lead Auditor"
+    ]
+  },
+  "knowsAbout": [
+    "RA 11285 Energy Efficiency and Conservation Act",
+    "ASHRAE Standard 211",
+    "IPMVP",
+    "DOE-CECO DEOS submissions",
+    "ISO/IEC 42001",
+    "NIST AI Risk Management Framework",
+    "EU AI Act Article 14",
+    "Fairlearn",
+    "AIF360",
+    "MLOps maturity"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "name": "EnerAI Diagnostic",
+    "description": "Refundable paid entry tier. 100% credited toward any higher engagement booked within 60 days.",
+    "price": "75000",
+    "priceCurrency": "PHP"
+  }
+}
+</script>
+</head>
+
+<body class="bg-bg text-ink">
+
+<main class="px-5 sm:px-8">
+
+  <!-- ============== HERO ============== -->
+  <section class="pt-20 sm:pt-28 pb-20 sm:pb-28">
+    <div class="max-w-prose mx-auto fade-in">
+      <p class="text-sm text-mute mb-6 tracking-wide">Green Consulting Corp · Quezon City</p>
+      <h1 class="serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] font-medium mb-6">
+        Energy audits and AI governance, run by the same engineer, on the same scope of work.
+      </h1>
+      <p class="text-lg text-mute leading-relaxed mb-10">
+        A one-person Philippine practice for RA 11285 compliance, ISO/IEC 42001 AI governance, and the integrated <em>EnerAI</em> engagement that handles both at once.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <a href="#diagnostic" class="btn-primary">
+          Book the EnerAI Diagnostic — PHP 75k
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#newsletter" class="btn-secondary">
+          Read the EnerAI Audit Memo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== TRUST STRIP ============== -->
+  <section class="border-y rule py-6">
+    <div class="max-w-prose mx-auto">
+      <p class="text-xs uppercase tracking-[0.14em] text-mute mb-4">Accreditations held by the practitioner</p>
+      <ul class="flex flex-wrap gap-2">
+        <li><span class="chip chip-forest">DOE-CECO</span></li>
+        <li><span class="chip chip-forest">AEE CEM</span></li>
+        <li><span class="chip chip-forest">AEE CEA</span></li>
+        <li><span class="chip chip-forest">ISO/IEC 42001 Lead Auditor</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============== THE PROBLEM ============== -->
+  <section class="py-20 sm:py-28">
+    <div class="max-w-prose mx-auto">
+      <p class="text-xs uppercase tracking-[0.14em] text-mute mb-4">The problem</p>
+      <h2 class="serif text-3xl sm:text-4xl leading-tight font-medium mb-10">
+        You are paying two firms for one risk surface.
+      </h2>
+
+      <div class="space-y-7 text-[1.02rem] leading-relaxed">
+        <p>
+          <strong>BPO and shared-services operators</strong> are running floor-wide Microsoft 365 Copilot rollouts on top of facilities that quietly missed their last RA 11285 filing window. The data-governance firm has no view of the kWh signal; the energy retainer has no view of the prompt logs. Both invoices keep arriving.
+        </p>
+        <p>
+          <strong>REIT and landlord portfolios</strong> are buying BMS-plus-AI optimization layers from a vendor whose case study lives in Singapore, while the building's IPMVP baseline was last touched in 2019 and the tenants are asking for a Scope 2 number that ties to the meter. Two consultants, two reports, no reconciliation.
+        </p>
+        <p>
+          <strong>Type 1 manufacturers</strong> are piloting predictive-maintenance models on the same compressors that drive the plant's largest energy line item. The reliability vendor reports uptime; the sustainability vendor reports kWh; neither one is accountable for the model card, the bias test, or the ISO/IEC 42001 evidence pack the parent company is about to ask for.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== THE ENERAI APPROACH ============== -->
+  <section class="py-20 sm:py-28 border-t rule">
+    <div class="max-w-prose mx-auto">
+      <p class="text-xs uppercase tracking-[0.14em] text-mute mb-4">The EnerAI approach</p>
+      <h2 class="serif text-3xl sm:text-4xl leading-tight font-medium mb-12">
+        One scope of work. Three audit tracks. The same signature on the report.
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-line border rule">
+        <!-- Energy -->
+        <article class="bg-bg p-6 md:p-7">
+          <h3 class="serif text-xl font-medium mb-2">Energy audits</h3>
+          <p class="text-sm text-mute leading-relaxed mb-5">
+            Compliance-grade audits and M&amp;V for Designated Establishments and DOE-CECO submissions through the DEOS portal.
+          </p>
+          <ul class="flex flex-wrap gap-1.5">
+            <li><span class="chip">RA 11285</span></li>
+            <li><span class="chip">ASHRAE Std 211 L1 &amp; L2</span></li>
+            <li><span class="chip">IPMVP M&amp;V</span></li>
+            <li><span class="chip">DEOS</span></li>
+          </ul>
+        </article>
+        <!-- AI -->
+        <article class="bg-bg p-6 md:p-7">
+          <h3 class="serif text-xl font-medium mb-2">AI audits</h3>
+          <p class="text-sm text-mute leading-relaxed mb-5">
+            Governance, bias, and conformity work for AI systems already in production — not slide decks about strategy.
+          </p>
+          <ul class="flex flex-wrap gap-1.5">
+            <li><span class="chip">NIST AI RMF</span></li>
+            <li><span class="chip">ISO/IEC 42001</span></li>
+            <li><span class="chip">EU AI Act Art. 14</span></li>
+            <li><span class="chip">Fairlearn / AIF360</span></li>
+            <li><span class="chip">MLOps maturity</span></li>
+          </ul>
+        </article>
+        <!-- Integrated -->
+        <article class="bg-bg p-6 md:p-7">
+          <h3 class="serif text-xl font-medium mb-2">EnerAI Integrated</h3>
+          <p class="text-sm text-mute leading-relaxed mb-5">
+            A single engagement that ties model behaviour to meter behaviour. One scope, one schedule, one report.
+          </p>
+          <ul class="flex flex-wrap gap-1.5">
+            <li><span class="chip">RA 11285 + 42001</span></li>
+            <li><span class="chip">Joint risk register</span></li>
+            <li><span class="chip">Unified M&amp;V plan</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== THE DIAGNOSTIC ============== -->
+  <section id="diagnostic" class="py-20 sm:py-28 border-t rule">
+    <div class="max-w-prose mx-auto">
+      <p class="text-xs uppercase tracking-[0.14em] text-mute mb-4">The entry tier</p>
+      <h2 class="serif text-3xl sm:text-4xl leading-tight font-medium mb-8">
+        The EnerAI Diagnostic — PHP 75,000 / USD 1,300.
+      </h2>
+
+      <p class="text-[1.02rem] leading-relaxed mb-6">
+        This is the only way to start an engagement with the practice. It is not a free consultation; it is a paid, scoped piece of diagnostic work that lands on your desk in <strong>ten business days</strong>.
+      </p>
+
+      <div class="border-l-2 border-forest pl-5 my-8">
+        <p class="text-[1.02rem] leading-relaxed">
+          If you proceed to any higher engagement (E1–E3, A1–A3, or EnerAI Integrated) within <strong>60 days</strong> of delivery, the full PHP 75,000 is credited against that engagement. <span class="text-mute">100% refundable in credit, not a deposit toward an unspecified scope.</span>
+        </p>
+      </div>
+
+      <h3 class="serif text-lg font-medium mb-3">What you receive in 10 business days</h3>
+      <ul class="space-y-2.5 text-[1.02rem] leading-relaxed">
+        <li class="flex gap-3"><span class="text-forest mt-2"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><rect width="10" height="10"/></svg></span><span>A one-meeting site-and-systems intake, conducted by the practitioner (not an associate).</span></li>
+        <li class="flex gap-3"><span class="text-forest mt-2"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><rect width="10" height="10"/></svg></span><span>A 12–18 page written diagnostic naming your RA 11285 status, AI system inventory, and the gap between the two.</span></li>
+        <li class="flex gap-3"><span class="text-forest mt-2"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><rect width="10" height="10"/></svg></span><span>A scoped recommendation for the next engagement, priced in PHP and USD, with the credit already applied.</span></li>
+        <li class="flex gap-3"><span class="text-forest mt-2"><svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><rect width="10" height="10"/></svg></span><span>A 30-minute walk-through call with the practitioner to pressure-test the findings.</span></li>
+      </ul>
+
+      <div class="mt-10">
+        <a href="mailto:jhonsensales@gmail.com?subject=EnerAI%20Diagnostic%20%E2%80%94%20Booking%20enquiry" class="btn-primary">
+          Book the EnerAI Diagnostic
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== SERVICE LADDER ============== -->
+  <section id="pricing" class="py-20 sm:py-28 border-t rule">
+    <div class="max-w-prose mx-auto">
+      <p class="text-xs uppercase tracking-[0.14em] text-mute mb-4">Service ladder</p>
+      <h2 class="serif text-3xl sm:text-4xl leading-tight font-medium mb-4">
+        Eight tiers. Fixed scope. Fixed price.
+      </h2>
+      <p class="text-mute leading-relaxed mb-10">
+        Every engagement begins with the Diagnostic. Prices are listed in PHP and USD at a planning rate of PHP 58 / USD 1; the engagement letter fixes the contract rate.
+      </p>
+
+      <div class="border-b rule">
+        <!-- Diagnostic -->
+        <div class="price-row">
+          <div class="tier">EnerAI Diagnostic</div>
+          <div class="desc">10-business-day written diagnostic. 100% credit toward any higher tier within 60 days.</div>
+          <div class="amt">PHP 75,000 <span class="usd">/ USD 1,300</span></div>
+        </div>
+
+        <!-- E1 -->
+        <div class="price-row">
+          <div class="tier">E1 — Walk-through Audit</div>
+          <div class="desc">ASHRAE Std 211 Level 1. Single-site walk-through, utility-bill analysis, ECM long list.</div>
+          <div class="amt">PHP 350,000 <span class="usd">/ USD 6,000</span></div>
+        </div>
+
+        <!-- E2 -->
+        <div class="price-row">
+          <div class="tier">E2 — Investment-Grade Audit</div>
+          <div class="desc">ASHRAE Std 211 Level 2. Metered measurement, ECM business cases, payback modelling.</div>
+          <div class="amt">PHP 850,000 <span class="usd">/ USD 14,700</span></div>
+        </div>
+
+        <!-- E3 -->
+        <div class="price-row">
+          <div class="tier">E3 — RA 11285 Compliance + IPMVP M&amp;V Retainer</div>
+          <div class="desc">DEOS submission, Designated Establishment reporting, annual IPMVP-conformant M&amp;V.</div>
+          <div class="amt">PHP 1,800,000 <span class="usd">/ USD 31,000</span></div>
+        </div>
+
+        <!-- A1 -->
+        <div class="price-row">
+          <div class="tier">A1 — AI Governance Readiness</div>
+          <div class="desc">NIST AI RMF gap assessment, AI system inventory, top-five risk register.</div>
+          <div class="amt">PHP 450,000 <span class="usd">/ USD 7,800</span></div>
+        </div>
+
+        <!-- A2 -->
+        <div class="price-row">
+          <div class="tier">A2 — ISO/IEC 42001 Implementation</div>
+          <div class="desc">AIMS scope, policies, controls, evidence pack, internal audit, certification readiness.</div>
+          <div class="amt">PHP 1,200,000 <span class="usd">/ USD 20,700</span></div>
+        </div>
+
+        <!-- A3 -->
+        <div class="price-row">
+          <div class="tier">A3 — EU AI Act Article 14 Conformity Audit</div>
+          <div class="desc">Human-oversight conformity, Fairlearn/AIF360 bias testing, model card and DPIA alignment.</div>
+          <div class="amt">PHP 2,200,000 <span class="usd">/ USD 38,000</span></div>
+        </div>
+
+        <!-- Integrated -->
+        <div class="price-row">
+          <div class="tier">EnerAI Integrated</div>
+          <div class="desc">Combined E2 + A2 on one scope, one schedule, one report. Single accountable signature.</div>
+          <div class="amt">PHP 3,500,000 <span class="usd">/ USD 60,300</span></div>
+        </div>
+      </div>
+
+      <p class="text-xs text-mute mt-6">Prices exclude 12% VAT and statutory third-party fees (DEOS filing, certification body, lab work).</p>
+    </div>
+  </section>
+
+  <!-- ============== WHO THIS IS FOR ============== -->
+  <section class="py-20 sm:py-28 border-t rule">
+    <div class="max-w-prose mx-auto">
+      <p class="text-xs uppercase tracking-[0.14em] text-mute mb-4">Who this is for</p>
+      <h2 class="serif text-3xl sm:text-4xl leading-tight font-medium mb-12">
+        Three engagement profiles I take on.
+      </h2>
+
+      <div class="space-y-8">
+        <!-- ICP A -->
+        <article class="border rule p-6 sm:p-7">
+          <p class="text-xs uppercase tracking-[0.14em] text-forest mb-2">Profile A</p>
+          <h3 class="serif text-xl font-medium mb-3">Multi-site BPO &amp; shared-services operators with Copilot deployments</h3>
+          <p class="text-sm text-mute leading-relaxed mb-4">
+            You run 800+ seats across two or more Metro Manila floors, and your tenant or your client has started asking about both kWh intensity and AI usage policy in the same RFP.
+          </p>
+          <p class="text-xs uppercase tracking-[0.14em] text-mute mb-2">Trigger events</p>
+          <ul class="text-sm leading-relaxed list-disc pl-5 space-y-1 marker:text-mute">
+            <li>Microsoft 365 Copilot or equivalent rolled out floor-wide in the last 12 months.</li>
+            <li>RA 11285 reporting cycle approaching, or a missed filing in the last cycle.</li>
+            <li>Enterprise client requesting an AI acceptable-use attestation.</li>
+          </ul>
+        </article>
+
+        <!-- ICP B -->
+        <article class="border rule p-6 sm:p-7">
+          <p class="text-xs uppercase tracking-[0.14em] text-forest mb-2">Profile B</p>
+          <h3 class="serif text-xl font-medium mb-3">REIT &amp; landlord portfolios with smart-building BMS+AI layers</h3>
+          <p class="text-sm text-mute leading-relaxed mb-4">
+            You hold a portfolio where a vendor has installed (or is selling) a BMS-overlay AI optimizer, and your tenants are now asking for Scope 2 numbers that tie back to a defensible IPMVP baseline.
+          </p>
+          <p class="text-xs uppercase tracking-[0.14em] text-mute mb-2">Trigger events</p>
+          <ul class="text-sm leading-relaxed list-disc pl-5 space-y-1 marker:text-mute">
+            <li>New BMS or AI-optimization vendor selected in the last 18 months.</li>
+            <li>Tenant ESG questionnaire requiring metered Scope 2 disclosure.</li>
+            <li>REIT board asking for an independent view on vendor savings claims.</li>
+          </ul>
+        </article>
+
+        <!-- ICP C -->
+        <article class="border rule p-6 sm:p-7">
+          <p class="text-xs uppercase tracking-[0.14em] text-forest mb-2">Profile C</p>
+          <h3 class="serif text-xl font-medium mb-3">Type 1 manufacturers piloting predictive-maintenance AI</h3>
+          <p class="text-sm text-mute leading-relaxed mb-4">
+            You are a Designated Establishment under RA 11285 running an AI pilot — vibration analytics, anomaly detection, computer vision QA — on equipment that also dominates your plant load.
+          </p>
+          <p class="text-xs uppercase tracking-[0.14em] text-mute mb-2">Trigger events</p>
+          <ul class="text-sm leading-relaxed list-disc pl-5 space-y-1 marker:text-mute">
+            <li>Predictive-maintenance or vision-QA pilot moving from POC to production.</li>
+            <li>Parent company requesting ISO/IEC 42001 alignment within 12 months.</li>
+            <li>Annual DOE-CECO energy report due, with no IPMVP-grade M&amp;V in place.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== HARD RULES ============== -->
+  <section class="py-20 sm:py-28 border-t rule">
+    <div class="max-w-prose mx-auto">
+      <p class="text-xs uppercase tracking-[0.14em] text-mute mb-4">House rules</p>
+      <h2 class="serif text-3xl sm:text-4xl leading-tight font-medium mb-10">
+        What this practice does not do.
+      </h2>
+
+      <ul class="divide-y rule border-y rule">
+        <li class="py-5 grid grid-cols-[auto_1fr] gap-4 items-start">
+          <span class="serif text-forest text-lg leading-none mt-1" aria-hidden="true">×</span>
+          <div>
+            <p class="font-medium mb-1">No free assessments.</p>
+            <p class="text-sm text-mute leading-relaxed">The Diagnostic exists so that both parties commit to a real piece of work from day one. Free assessments select for tire-kickers and produce shallow findings.</p>
+          </div>
+        </li>
+        <li class="py-5 grid grid-cols-[auto_1fr] gap-4 items-start">
+          <span class="serif text-forest text-lg leading-none mt-1" aria-hidden="true">×</span>
+          <div>
+            <p class="font-medium mb-1">No hourly billing.</p>
+            <p class="text-sm text-mute leading-relaxed">Every tier is fixed-scope and fixed-price. You know the deliverable and the number before you sign.</p>
+          </div>
+        </li>
+        <li class="py-5 grid grid-cols-[auto_1fr] gap-4 items-start">
+          <span class="serif text-forest text-lg leading-none mt-1" aria-hidden="true">×</span>
+          <div>
+            <p class="font-medium mb-1">No vendor pitches.</p>
+            <p class="text-sm text-mute leading-relaxed">The practice takes no referral fees, no commissions, and no kickbacks from BMS, meter, software, or certification vendors. Recommendations are written to be defensible in a board pack.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============== ABOUT THE FOUNDER ============== -->
+  <section id="founder" class="py-20 sm:py-28 border-t rule">
+    <div class="max-w-prose mx-auto">
+      <p class="text-xs uppercase tracking-[0.14em] text-mute mb-4">About the founder</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-8 sm:gap-10 items-start">
+        <!-- Square photo placeholder, 1:1, neutral border, no drop shadow -->
+        <figure class="w-full max-w-[180px]">
+          <div class="aspect-square w-full border rule bg-white flex items-center justify-center" aria-label="Photograph of Engr. Jhonsen Sales (placeholder)">
+            <!-- Replace this <img> src with /assets/jhonsen-sales.jpg when the photo is available -->
+            <img src="/assets/jhonsen-sales.jpg"
+                 alt="Engr. Jhonsen Sales"
+                 width="180" height="180"
+                 class="w-full h-full object-cover"
+                 onerror="this.style.display='none'; this.parentElement.querySelector('[data-placeholder]').style.display='flex';" />
+            <div data-placeholder class="hidden w-full h-full items-center justify-center text-mute text-xs tracking-wide uppercase">
+              Photo
+            </div>
+          </div>
+        </figure>
+
+        <div>
+          <h2 class="serif text-3xl sm:text-4xl leading-tight font-medium mb-2">
+            Engr. Jhonsen Sales
+          </h2>
+          <p class="text-mute mb-5">ECE, CEM, CEA · Founder &amp; Lead Auditor</p>
+
+          <ul class="flex flex-wrap gap-1.5 mb-7">
+            <li><span class="chip">Electronics Engineer (PRC)</span></li>
+            <li><span class="chip">DOE-CECO</span></li>
+            <li><span class="chip">AEE Certified Energy Manager</span></li>
+            <li><span class="chip">AEE Certified Energy Auditor</span></li>
+            <li><span class="chip">PECB ISO/IEC 42001 Lead Auditor</span></li>
+          </ul>
+
+          <p class="text-[1.02rem] leading-relaxed">
+            I run a one-person practice on purpose. Every Philippine operator I meet is now buying energy compliance and AI governance from two different vendors who never read each other's reports — and the meter and the model are running on the same floor, drawing the same power, exposed to the same regulator. The EnerAI thesis is that one engineer, holding both the RA 11285 stamp and the ISO/IEC 42001 lead-auditor credential, can write a single defensible report on that shared risk surface. That is the work I take on.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== NEWSLETTER ============== -->
+  <section id="newsletter" class="py-20 sm:py-28 border-t rule">
+    <div class="max-w-prose mx-auto">
+      <p class="text-xs uppercase tracking-[0.14em] text-mute mb-4">The EnerAI Audit Memo</p>
+      <h2 class="serif text-3xl sm:text-4xl leading-tight font-medium mb-4">
+        One memo. Every other Tuesday. Written by the practitioner.
+      </h2>
+      <p class="text-mute leading-relaxed mb-8">
+        Field notes on RA 11285 enforcement, ISO/IEC 42001 implementation, and the EU AI Act as it lands on Philippine operators. No roundups, no sponsored placements.
+      </p>
+
+      <!-- BEEHIIV EMBED: replace the <form> below with the Beehiiv iframe / inline embed snippet -->
+      <div id="beehiiv-embed">
+        <form action="https://example.beehiiv.com/subscribe" method="post" class="flex flex-col sm:flex-row gap-3">
+          <label for="email" class="sr-only">Email address</label>
+          <input
+            id="email" type="email" name="email" required
+            placeholder="you@company.com"
+            class="flex-1 px-4 py-3 border rule bg-white text-ink placeholder:text-mute focus:outline-none focus:border-forest rounded-sm"
+          />
+          <button type="submit" class="btn-primary justify-center">
+            Subscribe
+          </button>
+        </form>
+        <p class="text-xs text-mute mt-3">Unsubscribe in one click. No list rentals, ever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="py-14 border-t rule">
+    <div class="max-w-prose mx-auto text-sm text-mute leading-relaxed">
+      <p class="text-ink font-medium mb-1">Green Consulting Corp</p>
+      <p class="mb-1">Quezon City, Philippines</p>
+      <p class="mb-1">SEC OPC Registration No. <span class="text-mute">[OPC-REG-NUMBER]</span></p>
+      <p class="mb-4">
+        <a class="link" href="mailto:jhonsensales@gmail.com">jhonsensales@gmail.com</a>
+        &nbsp;·&nbsp;
+        <a class="link" href="https://www.linkedin.com/in/[linkedin-handle]" rel="me noopener">LinkedIn</a>
+      </p>
+      <p class="text-xs">© <span id="year">2026</span> Green Consulting Corp. All rights reserved.</p>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>
